@@ -1,0 +1,3 @@
+Bridge_Puzzle mental 6
+Tag_Arena physical 5
+Quiz_of_Death mental 7
