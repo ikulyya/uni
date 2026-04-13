@@ -1,0 +1,2 @@
+Hilltop_B5;Keknyelu;450;traditional;22
+Valley_C1;Szurkebarat;600;modern;10

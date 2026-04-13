@@ -1,0 +1,2 @@
+South_T1;Olaszrizling;500;traditional;40
+North_A2;Furmint;320;terraced;15
