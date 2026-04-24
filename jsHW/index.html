@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Water Pipes of Farawayland</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero" data-hero>
+            <p class="eyebrow">Web Programming Assignment</p>
+            <h1>The Water Pipes of Farawayland</h1>
+            <p class="hero-copy">
+                Rotate the pipes, restore the city's water supply, and build one valid leak-free network.
+            </p>
+        </header>
+
+        <main>
+            <section class="screen screen-active menu-screen" data-screen="menu">
+                <div class="panel stack">
+                    <h2>Start Game</h2>
+                    <form class="start-form" novalidate>
+                        <label class="field">
+                            <span>Player name</span>
+                            <input name="playerName" type="text" maxlength="24" autocomplete="off" required>
+                        </label>
+
+                        <fieldset class="field level-picker">
+                            <legend>Difficulty</legend>
+                            <label class="choice-card">
+                                <input type="radio" name="difficulty" value="easy" checked>
+                                <span>Easy</span>
+                                <small>4x4 board</small>
+                            </label>
+                            <label class="choice-card">
+                                <input type="radio" name="difficulty" value="medium">
+                                <span>Intermediate</span>
+                                <small>5x5 board</small>
+                            </label>
+                            <label class="choice-card">
+                                <input type="radio" name="difficulty" value="hard">
+                                <span>Hard</span>
+                                <small>7x7 board</small>
+                            </label>
+                        </fieldset>
+
+                        <div class="menu-actions">
+                            <button class="button button-primary" type="submit">Start</button>
+                            <button class="button" type="button" data-action="continue">Continue Saved Game</button>
+                            <button class="button" type="button" data-action="toggle-rules">Rules</button>
+                            <button class="button" type="button" data-action="toggle-leaderboard">Leaderboard</button>
+                        </div>
+                        <p class="form-message" aria-live="polite"></p>
+                    </form>
+                </div>
+
+                <div class="panel stack collapsible" data-panel="rules">
+                    <div class="panel-head">
+                        <h2>Rules</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Correct the pipe system to reach from the source to every consumer.
+                            the final pipe system must be connected in a tree.
+                        </p>
+                        <ul class="rules-list">
+                            <li>Click on pipe to rotate it by 90 degrees clockwise.</li>
+                            <li>Blue pipes are connected to the water source.</li>
+                            <li>Every pipe must be reachable from the source.</li>
+                            <li>Every open side of a pipe must be connected to a matching neighbor.</li>
+                            <li>There should be no cycles in the final pipe system.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel stack collapsible" data-panel="leaderboard">
+                    <div class="panel-head">
+                        <h2>Leaderboard</h2>
+                    </div>
+                    <div class="panel-body">
+                        <ol class="leaderboard-list"></ol>
+                        <p class="empty-state leaderboard-empty">No completed games yet.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen game-screen" data-screen="game">
+                <div class="game-layout">
+                    <aside class="panel game-sidebar">
+                        <div class="status-block">
+                            <p class="status-label">Player</p>
+                            <p class="status-value" data-player-label>-</p>
+                        </div>
+                        <div class="status-block">
+                            <p class="status-label">Difficulty</p>
+                            <p class="status-value" data-difficulty-label>-</p>
+                        </div>
+                        <div class="status-block">
+                            <p class="status-label">Elapsed Time</p>
+                            <p class="status-value" data-time-label>00:00</p>
+                        </div>
+                        <div class="game-actions">
+                            <button class="button button-primary" type="button" data-action="save-quit">Save and Quit</button>
+                            <button class="button" type="button" data-action="quit-menu">Main Menu</button>
+                        </div>
+                    </aside>
+
+                    <section class="panel board-panel">
+                        <div class="board-wrap">
+                            <canvas class="game-canvas" data-board width="560" height="560" aria-label="Water pipe game board"></canvas>
+                            <div class="overlay" data-overlay hidden>
+                                <div class="overlay-card">
+                                    <h2>Water Restored</h2>
+                                    <p data-overlay-message></p>
+                                    <button class="button button-primary" type="button" data-action="back-after-win">Back to Main Menu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
